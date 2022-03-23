@@ -14,7 +14,7 @@ function App() {
         <Header />
         <NavbarMenu />
 
-        <Routes>
+        <Routes> 
           <Route path="/" element={<Home />} />
           <Route path="/single-page" element={<Detail />} />
         </Routes>
