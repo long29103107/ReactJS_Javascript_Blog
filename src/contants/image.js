@@ -1,0 +1,1 @@
+export const LOGO = window.location.origin + "/assets/img/logo.png";
