@@ -1,25 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
-import Header from 'components/Header';
-import Footer from 'components/Footer';
-import NavbarMenu from 'components/NavbarMenu';
-import Home from 'features/Home';
-import Detail from 'pages/Detail';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { Suspense } from 'react';
+import Loader from 'components/client/Loader';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import LayoutClient from 'features/LayoutClient';
+import LayoutAdmin from 'features/admin/LayoutAdmin';
+
+const Home = React.lazy(() => import('./features/Home'));
+const BlogDetail = React.lazy(() => import('./features/BlogDetail'));
+const Dashboard = React.lazy(() => import('./features/admin/Dashboard'));
+const BlogAdmin = React.lazy(() => import('./features/admin/Blog'));
+const CategoryAdmin = React.lazy(() => import('./features/admin/Category'));
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
-        <NavbarMenu />
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path='*' element={<LayoutClient />}>
+              <Route path='/*' element={<Home />} />
+              <Route path='single-page/*' element={<BlogDetail />} />
+            </Route>
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/single-page" element={<Detail />} />
-        </Routes>
-
-        <Footer />
+            <Route path='admin' element={<LayoutAdmin />}>
+              <Route path='dashboard/*' element={<Dashboard />} />
+              <Route path='blog/*' element={<BlogAdmin />} />
+              <Route path='category/*' element={<CategoryAdmin />} />
+            </Route>
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </>
   );

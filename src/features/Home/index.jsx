@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes, useLocation, Outlet } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Main from './pages/Main';
 
 Home.propTypes = {};
@@ -10,10 +10,10 @@ function Home() {
   return (
     <>
       <Routes>
-        <Route path={match.pathname} element={<Main />} />
+        <Route path="/" element={<Main />} />
       </Routes>
     </>
   );
 }
 
-export default Main;
+export default Home;

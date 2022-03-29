@@ -1,8 +1,8 @@
 
 import { Container, Col, Row } from 'reactstrap'
-import ContentBlogDetail from 'features/BlogDetail/components/ContentBlogDetail'
-import RelatedBlogDetail from 'features/BlogDetail/components/RelatedBlogDetail'
-import SidebarsBlogDetail from 'features/BlogDetail/components/SidebarsBlogDetail';
+import ContentBlogDetail from './ContentBlogDetail'
+import RelatedBlogDetail from './RelatedBlogDetail'
+import SidebarsBlogDetail from './SidebarsBlogDetail';
 
 function ContentDetail() {
   return (

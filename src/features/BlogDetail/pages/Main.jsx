@@ -1,5 +1,5 @@
-import ContentDetail from 'features/BlogDetail/components/ContentDetail';
-import Breadcrumb from 'features/BlogDetail/components/Breadcrumb';
+import ContentDetail from '../components/ContentDetail';
+import Breadcrumb from '../components/Breadcrumb';
 
 function Main() {
   return (
